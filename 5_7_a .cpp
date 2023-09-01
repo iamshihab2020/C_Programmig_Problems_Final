@@ -16,24 +16,21 @@ Shown below is a Floyd’s triangle.
 0 1 0 1
 1 0 1 0 1
 */
-
 #include <stdio.h>
 
 int main() {
-  int i, j, n;
+    int n, num = 1;
 
-  // Get the number of rows
-  printf("Enter the number of rows: ");
-  scanf("%d", &n);
+    printf("Enter the number of rows for Floyd's triangle: ");
+    scanf("%d", &n);
 
-  // Print the triangle
-  for (i = 1; i <= n; i++) {
-    for (j = 1; j <= i; j++) {
-      printf("%d ", i);
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= i; j++) {
+            printf("%d ", num);
+            num++;
+        }
+        printf("\n");
     }
-    printf("\n");
-  }
 
-  return 0;
+    return 0;
 }
-

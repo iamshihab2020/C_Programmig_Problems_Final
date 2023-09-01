@@ -32,7 +32,8 @@ int main() {
         } else {
           printf("0");
         }
-      } else {
+      }
+      else {
         if (j == 1 || i == j) {
           printf("1");
         } else {
