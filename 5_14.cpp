@@ -5,31 +5,6 @@ NOTE: A prime number is a positive integer that is divisible only by 1 or by its
 
 #include <stdio.h>
 
-int main() {
-  int n, i;
-  bool isPrime = true;
-
-  // Read the number
-  printf("Enter a positive integer: ");
-  scanf("%d", &n);
-
-  // Check if the number is prime
-  for (i = 2; i < n; i++) {
-    if (n % i == 0) {
-      isPrime = false;
-      break;
-    }
-  }
-
-  // Print the output
-  if (isPrime) {
-    printf("%d is a prime number.\n", n);
-  } else {
-    printf("%d is not a prime number.\n", n);
-  }
-
-  return 0;
-}
 
 // Modified program to count all the prime numbers that lie between 100 and 200
 int main() {

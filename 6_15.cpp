@@ -10,24 +10,32 @@ The program should request the user to input the data interactively.*/
 
 
 #include <stdio.h>
+#include <math.h>
 
 int main() {
-  float c, p, d;
-  int n;
+    double originalCost, depreciationRate, scrapValue;
 
-  // Get the data from the user
-  printf("Enter the original cost: ");
-  scanf("%f", &c);
-  printf("Enter the depreciation rate: ");
-  scanf("%f", &d);
-  printf("Enter the scrap value: ");
-  scanf("%f", &p);
+    printf("Enter the original cost of the item: ");
+    scanf("%lf", &originalCost);
 
-  // Calculate the useful life
-  n = (log(p) / log(1 - d));
+    printf("Enter the depreciation rate (in decimal form, e.g., 0.10 for 10%): ");
+    scanf("%lf", &depreciationRate);
 
-  // Print the useful life
-  printf("The useful life is %d years.\n", n);
+    printf("Enter the scrap value (present value) of the item: ");
+    scanf("%lf", &scrapValue);
 
-  return 0;
+    if (originalCost <= scrapValue || depreciationRate <= 0) {
+        printf("Invalid input. The original cost must be greater than the scrap value, and depreciation rate must be positive.\n");
+    } else {
+        double years = log(scrapValue / originalCost) / log(1 - depreciationRate);
+
+        // Check if years is not a finite number (could be NaN or -inf)
+        if (isnan(years) || years == -INFINITY) {
+            printf("The item will never reach the scrap value at the given depreciation rate.\n");
+        } else {
+            printf("The useful life of the item is approximately %.2lf years.\n", years);
+        }
+    }
+
+    return 0;
 }

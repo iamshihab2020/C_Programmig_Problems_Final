@@ -4,21 +4,24 @@ Write a program to compute the sum of the digits of a given integer number.*/
 #include <stdio.h>
 
 int main() {
-  int n, digit, sum = 0;
+    int num, sum = 0, digit;
 
-  // Get the number
-  printf("Enter the number: ");
-  scanf("%d", &n);
+    printf("Enter an integer number: ");
+    scanf("%d", &num);
 
-  // Calculate the sum of the digits
-  while (n != 0) {
-    digit = n % 10;
-    sum += digit;
-    n = n / 10;
-  }
+    // Ensure the number is positive
+    if (num < 0) {
+        num = -num;
+    }
 
-  // Print the sum
-  printf("The sum of the digits is %d.\n", sum);
+    // Calculate the sum of digits
+    while (num > 0) {
+        digit = num % 10;
+        sum += digit;
+        num /= 10;
+    }
 
-  return 0;
+    printf("Sum of the digits: %d\n", sum);
+
+    return 0;
 }

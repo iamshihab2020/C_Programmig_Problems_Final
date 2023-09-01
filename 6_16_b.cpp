@@ -7,32 +7,21 @@ S           S
 S           S
 S S S S S
 */
-
 #include <stdio.h>
 
 int main() {
-  int i, j;
+    int size = 5; // Size of the square
 
-  // Print the top line
-  for (i = 0; i < 5; i++) {
-    printf("S");
-  }
-  printf("\n");
-
-  // Print the middle lines
-  for (i = 1; i < 4; i++) {
-    printf("S");
-    for (j = 1; j < 4; j++) {
-      printf(" ");
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            if (i == 0 || i == size - 1 || j == 0 || j == size - 1) {
+                printf("S ");
+            } else {
+                printf("  "); // Print two spaces for the inner area
+            }
+        }
+        printf("\n");
     }
-    printf("S\n");
-  }
 
-  // Print the bottom line
-  for (i = 0; i < 5; i++) {
-    printf("S");
-  }
-  printf("\n");
-
-  return 0;
+    return 0;
 }

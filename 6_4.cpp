@@ -7,23 +7,30 @@ are called Fibonacci numbers. Write a program using a do....while loop to calcul
 #include <stdio.h>
 
 int main() {
-  int i, m, first = 0, second = 1, next;
+    int m, first = 1, second = 1, next, i = 2;
 
-  // Get the number
-  printf("Enter the number: ");
-  scanf("%d", &m);
+    printf("Enter the number of Fibonacci numbers to generate: ");
+    scanf("%d", &m);
 
-  // Print the first two Fibonacci numbers
-  printf("%d %d ", first, second);
+    if (m >= 1) {
+        printf("Fibonacci Sequence: ");
+        printf("%d %d ", first, second);
 
-  // Calculate and print the next Fibonacci numbers
-  do {
-    next = first + second;
-    printf("%d ", next);
-    first = second;
-    second = next;
-    i++;
-  } while (i < m - 2);
+        do {
+            next = first + second;
+            printf("%d ", next);
 
-  return 0;
+            // Update the variables for the next iteration
+            first = second;
+            second = next;
+
+            i++;
+        } while (i < m);
+
+        printf("\n");
+    } else {
+        printf("Invalid input. Please enter a positive integer.\n");
+    }
+
+    return 0;
 }
