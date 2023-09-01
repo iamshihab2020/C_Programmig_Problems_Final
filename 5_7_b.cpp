@@ -19,19 +19,25 @@ Shown below is a Floyd’s triangle.
 #include <stdio.h>
 
 int main() {
-  int i, j, n;
+  int n, i, j;
 
-  // Get the number of rows
   printf("Enter the number of rows: ");
   scanf("%d", &n);
 
-  // Print the triangle
   for (i = 1; i <= n; i++) {
     for (j = 1; j <= i; j++) {
-      if (j == 1 || j == i) {
-        printf("1 ");
+      if (i >= 2 && i % 2 == 0) {
+        if (j == 1 || j == i) {
+          printf("1");
+        } else {
+          printf("0");
+        }
       } else {
-        printf("0 ");
+        if (j == 1 || i == j) {
+          printf("1");
+        } else {
+          printf("0");
+        }
       }
     }
     printf("\n");
@@ -39,3 +45,6 @@ int main() {
 
   return 0;
 }
+
+
+
