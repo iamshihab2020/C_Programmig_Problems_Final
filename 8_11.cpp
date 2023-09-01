@@ -10,11 +10,9 @@ int main() {
 
     printf("Enter the first string: ");
     fgets(str1, sizeof(str1), stdin);
-    str1[strcspn(str1, "\n")] = '\0'; // Remove newline character
 
     printf("Enter the second string: ");
     fgets(str2, sizeof(str2), stdin);
-    str2[strcspn(str2, "\n")] = '\0'; // Remove newline character
 
     int result = strncmp(str1, str2, sizeof(str1));
 
